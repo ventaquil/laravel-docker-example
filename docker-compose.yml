@@ -2,7 +2,7 @@ version: "3"
 services:
   apache:
     build: "./apache"
-    image: "php:7.1-apache-custom"
+    image: "php:7.1-apache-laravel"
     links:
      - "mariadb:database"
     ports:
