@@ -5,6 +5,7 @@ services:
     image: "php:7.1-apache-laravel"
     links:
      - "mariadb:database"
+     - "redis"
     ports:
      - "80:80"
     restart: "on-failure"
@@ -18,4 +19,10 @@ services:
     restart: "on-failure"
     volumes:
      - "./database:/var/lib/mysql"
+  redis:
+    image: "redis"
+    restart: "on-failure"
+    volumes:
+     - "./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf"
+     - "./redis/data:/data"
 
